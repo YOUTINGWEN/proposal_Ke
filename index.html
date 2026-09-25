@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互動名片 Demo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page-note">
+    English Font | Altivo<br>
+    Traditional Chinese Font | Hiragino Kaku Gothic<br>
+    Size | 54 × 90 mm
+  </div>
+
+  <div class="switcher">
+
+    <button class="nav-arrow" id="prevBtn" aria-label="上一個提案">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+
+    <div class="stage">
+      <div class="card" id="card">
+        <div class="card-inner">
+
+          <!-- 正面：由 JS 依目前提案動態換圖 -->
+          <div class="card-face card-front">
+            <div class="shine"></div>
+          </div>
+
+          <!-- 背面：由 JS 依目前提案動態換圖 -->
+          <div class="card-face card-back">
+            <div class="shine"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <button class="nav-arrow" id="nextBtn" aria-label="下一個提案">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+
+  </div>
+
+  <p class="proposal-label" id="proposalLabel"></p>
+  <p class="tags" id="tags"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
