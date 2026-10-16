@@ -32,7 +32,6 @@ const rounds = [
         front: 'proposal4-front.jpg',
         back: 'proposal4-back.jpg',
         bg: '#f4f1ea',
-        tags: '＃拆解　＃符號與資訊',
       },
       {
         name: '提案五',
@@ -40,7 +39,6 @@ const rounds = [
         front: 'proposal5-front.jpg',
         back: 'proposal5-back.jpg',
         bg: '#f4f1ea',
-        tags: '＃拆解　＃符號與資訊',
       },
     ],
   },
