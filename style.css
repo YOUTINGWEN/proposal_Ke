@@ -1,5 +1,5 @@
 :root {
-  --card-w: 4.5cm;   /* 直式名片，實際尺寸 4.2cm x 7cm，比例 0.6:1 */
+  --card-w: 4.5cm;   /* 直式名片，實際尺寸 5.4cm x 9cm，比例 0.6:1；螢幕上等比例縮小顯示 */
   --card-h: 7.5cm;
   --bg: #ffffff;
   --accent: #d4af7a;
@@ -53,6 +53,7 @@ body {
   width: var(--card-w);
   height: var(--card-h);
   perspective: 1200px;
+  touch-action: none;   /* 手機拖曳轉動名片時，頁面不跟著捲動 */
 }
 
 .card {
@@ -185,10 +186,55 @@ body {
   transition: transform 0.15s ease;
 }
 
+/* 名片下方：提案名稱 + 延續自哪個提案 */
+.proposal-info {
+  text-align: center;
+}
+
 .proposal-label {
+  margin: 0;
   color: #6b665a;
   font-size: 13px;
   letter-spacing: 0.5px;
+}
+
+.proposal-from {
+  margin: 6px 0 0;
+  min-height: 1em;
+  color: #9a9486;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* 右上角：提案日期切換 */
+.round-nav {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  gap: 18px;
+}
+
+.round-nav button {
+  padding: 0 0 3px;
+  border: none;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: #9a9486;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.round-nav button:hover {
+  color: #33302a;
+}
+
+.round-nav button.active {
+  color: #33302a;
+  border-bottom-color: #33302a;
 }
 
 @media (max-width: 420px) {
@@ -209,6 +255,16 @@ body {
   .page-note {
     top: 14px;
     left: 14px;
+    font-size: 11px;
+  }
+
+  .round-nav {
+    top: 14px;
+    right: 14px;
+    gap: 14px;
+  }
+
+  .round-nav button {
     font-size: 11px;
   }
 

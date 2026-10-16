@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>proposal_Ke_926</title>
+<title>proposal_Ke_1016</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="page-note">
-    English Font | Altivo<br>
-    Traditional Chinese Font | Hiragino Kaku Gothic<br>
-    Size | 54 × 90 mm
-  </div>
+  <!-- 左上角：字型/尺寸標註，內容由 JS 依目前提案填入 -->
+  <div class="page-note" id="pageNote"></div>
+
+  <!-- 右上角：切換各輪提案（10.16 / 9.26），按鈕由 JS 產生 -->
+  <nav class="round-nav" id="roundNav" aria-label="提案日期"></nav>
 
   <div class="switcher">
 
@@ -44,7 +44,10 @@
 
   </div>
 
-  <p class="proposal-label" id="proposalLabel"></p>
+  <div class="proposal-info">
+    <p class="proposal-label" id="proposalLabel"></p>
+    <p class="proposal-from" id="proposalFrom"></p>
+  </div>
   <p class="tags" id="tags"></p>
 
   <script src="script.js"></script>

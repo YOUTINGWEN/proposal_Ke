@@ -6,41 +6,42 @@
 business-card-tilt/
 ├── index.html          # 頁面結構（含左右切換箭頭）
 ├── style.css           # 外觀、3D 效果、反光、箭頭樣式
-├── script.js           # 追蹤滑鼠位置、轉動角度、提案切換邏輯
+├── script.js           # 提案清單（分輪）、轉動角度、切換邏輯
 ├── proposal1-front.jpg # 提案一 正面
 ├── proposal1-back.jpg  # 提案一 背面
-├── proposal2-front.jpg # 提案二 正面（目前是提案一的複製檔，換成你的第二個提案）
-└── proposal2-back.jpg  # 提案二 背面（同上）
+└── proposalN-front/back.jpg  # 各提案正反面（9.26：一～三，10.16：四、五）
 ```
 
-## 換上你的第二個提案
+## 新增一輪提案 / 新增提案
 
-`proposal2-front.jpg` / `proposal2-back.jpg` 目前只是暫時複製提案一的圖，
-把這兩個檔案換成你真正的第二個提案設計（檔名維持一樣）即可。
-
-## 新增第三個、第四個提案
-
-打開 `script.js`，找到最上面的 `proposals` 陣列：
+打開 `script.js`，找到 `rounds` 陣列。每一輪提案是一個物件，**最新的一輪放最上面**，
+網址不帶參數時會先顯示它；右上角會自動出現各輪的日期可以切換，
+舊的一輪也能用 `?round=0926` 這種網址直接打開。
 
 ```js
-const proposals = [
-  { name: '提案一', front: 'proposal1-front.jpg', back: 'proposal1-back.jpg' },
-  { name: '提案二', front: 'proposal2-front.jpg', back: 'proposal2-back.jpg' },
-];
+{
+  id: '1016',          // 用在網址 ?round=1016 和頁面標題 proposal_Ke_1016
+  label: '10.16',      // 右上角顯示的日期
+  proposals: [
+    {
+      name: '提案四',
+      from: '延續 9.26 提案二、三',   // 名片下方的小字，可省略
+      front: 'proposal4-front.jpg',
+      back: 'proposal4-back.jpg',
+      bg: '#f4f1ea',                  // 頁面背景色
+      tags: '＃拆解　＃符號與資訊',     // 右下角標籤
+      // note: ['English Font | ...', 'Size | ...'],  // 字型/尺寸與預設不同時才加
+    },
+  ],
+},
 ```
 
-要加提案，直接在陣列裡多加一行，例如：
-
-```js
-{ name: '提案三', front: 'proposal3-front.jpg', back: 'proposal3-back.jpg' },
-```
-
-把對應的圖片放進資料夾就會自動出現在切換清單裡，左右箭頭會自動循環。
+在某一輪的 `proposals` 裡多加一個物件，就會多一張可以左右切換的名片。
 
 ## 圖片規格
 
 名片尺寸為 5.4cm x 9cm（寬:高 = 0.6:1），`style.css` 裡的 `--card-w` /
-`--card-h` 已經照這個比例設定（240px x 400px）。JPG 圖片建議也用同樣比例
+`--card-h` 已經照這個比例設定（螢幕上顯示為 4.5cm x 7.5cm）。JPG 圖片建議也用同樣比例
 輸出（例如 540px x 900px 或更高解析度的等比例圖），避免
 `background-size: cover` 裁到重要內容。
 
@@ -49,6 +50,7 @@ const proposals = [
 - 滑鼠移動：卡片跟著轉動、反光跟著跑
 - 點擊卡片：翻到背面 / 翻回正面
 - 點左右箭頭 或 按鍵盤 ← →：切換提案（切換時會自動翻回正面）
+- 點右上角日期：切換不同輪的提案
 
 ## 本機預覽
 
@@ -82,4 +84,5 @@ const proposals = [
 
 打開 `script.js` 修改：
 - `MAX_TILT`：轉動幅度，數字越大轉動感越明顯（建議 8～20 之間）
-- `proposals`：提案清單，如上所述
+- `rounds`：各輪提案清單，如上所述
+- `DEFAULT_NOTE`：左上角的字型/尺寸標註
