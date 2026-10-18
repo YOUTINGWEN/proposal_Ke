@@ -9,7 +9,7 @@ business-card-tilt/
 ├── script.js           # 提案清單（分輪）、轉動角度、切換邏輯
 ├── proposal1-front.jpg # 提案一 正面
 ├── proposal1-back.jpg  # 提案一 背面
-└── proposalN-front/back.jpg  # 各提案正反面（9.26：一～三，10.16：四、五）
+└── proposalN-front/back.jpg  # 各提案正反面（9.26：一～三，10.17：四、五）
 ```
 
 ## 新增一輪提案 / 新增提案
@@ -20,8 +20,8 @@ business-card-tilt/
 
 ```js
 {
-  id: '1016',          // 用在網址 ?round=1016 和頁面標題 proposal_Ke_1016
-  label: '10.16',      // 右上角顯示的日期
+  id: '1017',          // 用在網址 ?round=1017 和頁面標題 proposal_Ke_1017
+  label: '10.17',      // 右上角顯示的日期
   proposals: [
     {
       name: '提案四',
