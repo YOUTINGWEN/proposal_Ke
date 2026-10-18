@@ -23,8 +23,8 @@ const DEFAULT_NOTE = [
 // 舊的一輪用 ?round=0926 這種網址也能直接打開。
 const rounds = [
   {
-    id: '1016',
-    label: '10.16',
+    id: '1017',
+    label: '10.17',
     proposals: [
       {
         name: '提案四',
