@@ -32,6 +32,11 @@ const rounds = [
         front: 'proposal4-front.jpg',
         back: 'proposal4-back.jpg',
         bg: '#f4f1ea',
+        note: [
+          'English Font | IBM Plex Mono',
+          'Traditional Chinese Font | Noto Sans CJK TC',
+          'Size | 54 × 90 mm',
+        ],
       },
       {
         name: '提案五',
@@ -110,7 +115,7 @@ function renderProposal(index) {
   root.style.setProperty('--bg', p.bg);
   label.textContent = `${p.name}（${index + 1} / ${list.length}）`;
   fromEl.textContent = p.from || '';
-  tagsEl.textContent = p.tags;
+  tagsEl.textContent = p.tags || '';
   noteEl.innerHTML = (p.note || DEFAULT_NOTE).join('<br>');
 
   // 只有一個提案時不需要左右箭頭
